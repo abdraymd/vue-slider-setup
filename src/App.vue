@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+	<div id="app">
+		<div class="container">
+			<InputSlider
+				:value="range"
+				:isLazy="true"
+				@change="value => (range = value)"
+			/>
+		</div>
+	</div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import InputSlider from '@/components/InputSlider'
 
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-};
+	name: 'App',
+	components: {
+		InputSlider
+	},
+	data() {
+		return {
+			range: 0
+		}
+	}
+}
 </script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+	padding: 20px 0;
+}
+
+.container {
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 0 30px;
 }
 </style>
